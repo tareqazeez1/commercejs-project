@@ -36,7 +36,7 @@ function App() {
         <div>
             <Navbar totalItems={cart.total_items} />
             <Products onAddToCart={handleAddToCart} products={products} />
-            {/* <Cart cart={cart} /> */}
+            <Cart cart={cart} />
         </div>
     )
 }
