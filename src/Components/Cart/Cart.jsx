@@ -4,13 +4,15 @@ import useStyles from './styles';
 
 export default function Cart({ cart }) {
     
-    const isEmpty = Object.keys(cart).length && !cart.line_items.length;
+    const isEmpty = !cart.line_items;
+
+    
   
     const classes = useStyles();
 
     const EmptyCart = () => {
         
-        <Typography varient="subtitile1">You have no items in your shopping cart</Typography>
+       return (<Typography variant="subtitile1">You have no items in your shopping cart</Typography>)
     }
     const FilledCart = () => (
         <>
@@ -22,14 +24,16 @@ export default function Cart({ cart }) {
                 ))}
             </Grid>
         <div className={classes.cardDetails}>
-            <Typography varient="h4">Subtotal : {cart.subtotal.formatted_with_symbol}</Typography>
+            <Typography variant="h5">Total Price : {cart.subtotal.formatted_with_symbol}</Typography>
             <div>
-                <Button className={classes.emptyButton} size="large" type="button" varient="contained" color="secondary">Empty Cart</Button>
-                <Button className={classes.checkoutButton} size="large" type="button" varient="contained" color="primary">Checkout</Button>
+                <Button variant="contained" className={classes.emptyButton} size="large" type="button" color="secondary">Empty Cart</Button>
+                <Button variant="contained" className={classes.checkoutButton} size="large" type="button" color="primary">Checkout</Button>
             </div>
         </div>
         </>
     )
+
+    if(!cart.line_items) return 'Loading.....'
     return (
         <Container>
             

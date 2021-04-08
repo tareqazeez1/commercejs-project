@@ -9,16 +9,14 @@ function App() {
     const [cart, setCart] = useState({});
 
     const fetchProduct = async () => {
-        const { data } = await commerce.products.list();
+        const {data} = await commerce.products.list();
        
         setProducts(data);
     }
 
     const fetchCart = async () => {
-        const itemz = await commerce.cart.retrieve();
-
-        setCart(itemz)
-    }
+        setCart(await commerce.cart.retrieve());
+      };
 
     const handleAddToCart = async (productId, quantity) => {
         const item = await commerce.cart.add(productId, quantity);
@@ -32,13 +30,13 @@ function App() {
 
     }, []);
 
-console.log(cart)
+
 
     return (
         <div>
             <Navbar totalItems={cart.total_items} />
-            {/* <Products onAddToCart={handleAddToCart} products={products} /> */}
-            <Cart cart={cart} />
+            <Products onAddToCart={handleAddToCart} products={products} />
+            {/* <Cart cart={cart} /> */}
         </div>
     )
 }

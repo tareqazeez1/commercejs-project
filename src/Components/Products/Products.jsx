@@ -12,9 +12,11 @@ export default function Products({ products, onAddToCart }) {
             <div className={classes.toolbar} />
             <Grid container justify="center" spacing={4}>
                 {
-                    products.map((product) => (<Grid item key={product.id} xs={12} sm={6} md={6} lg={3}>
+                    products.map((product) => (
+                    <Grid item key={product.id} xs={12} sm={6} md={6} lg={3}>
                         <Product product={product} onAddToCart={onAddToCart} />
-                    </Grid>))
+                    </Grid>
+                    ))
                 }
             </Grid>
             
