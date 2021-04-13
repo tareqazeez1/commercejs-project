@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar/Navbar';
 import Products from './Components/Products/Products';
 import { commerce } from './lib/commerce';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Checkout from './Components/CheckoutForm/Checkout/Checkout';
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -64,6 +65,10 @@ function App() {
                         handleEmptyCart={handleEmptyCart}
                         handleUpdateCartQty={handleUpdateCartQty}
                         handleRemoveCart={handleRemoveCart} />
+                    </Route>
+
+                    <Route exact path="/checkout">
+                        <Checkout cart={cart} />
                     </Route>
                 
                 </Switch>

@@ -32,7 +32,7 @@ export default function Cart({ cart, handleEmptyCart, handleUpdateCartQty, handl
             <Typography variant="h5">Total Price : {cart.subtotal.formatted_with_symbol}</Typography>
             <div>
                 <Button onClick={handleEmptyCart} variant="contained" className={classes.emptyButton} size="large" type="button" color="secondary">Empty Cart</Button>
-                <Button variant="contained" className={classes.checkoutButton} size="large" type="button" color="primary">Checkout</Button>
+                <Button component={Link} to="/checkout" variant="contained" className={classes.checkoutButton} size="large" type="button" color="primary">Checkout</Button>
             </div>
         </div>
         </>
