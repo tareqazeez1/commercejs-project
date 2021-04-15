@@ -1,4 +1,4 @@
-import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core';
+import { CssBaseline, Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
@@ -7,7 +7,7 @@ import useStyles from './styles';
 
 const steps = ['Shipping Address', 'Payment Details'];
 
-function Checkout({ cart }) {
+function Checkout({ cart, order, onCaptureCheckout, error }) {
 
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
@@ -43,9 +43,10 @@ function Checkout({ cart }) {
 
     const Form = () => activeStep === 0
     ? <AddressForm checkoutToken={checkoutToken} next={next} />
-    : <PaymentForm shippingData={shippingData} />
+    : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep} nextStep={nextStep} onCaptureCheckout={onCaptureCheckout} />
     return (
         <>
+        <CssBaseline />
         <div className={classes.toolbar} />
         <main className={classes.layout}>
             <Paper className={classes.paper}>
