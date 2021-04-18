@@ -1,4 +1,4 @@
-## This an ecommerce shop created with react, material UI and commerceJs API
+## An ecommerce shop created with react, material UI and commerce.Js API
 
 ### Features:
 1. Products
