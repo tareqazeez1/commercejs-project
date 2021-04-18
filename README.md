@@ -4,8 +4,8 @@
 1. Products
 2. Cart
 3. Checkout
-4. Product Review
-5. Strip Payment Gateway
+4. Products Review
+5. Stripe Payment Gateway.
 
 
 
